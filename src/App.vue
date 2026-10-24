@@ -14,7 +14,21 @@ const category = ref('All')
 const view = ref('grid')
 const scrollProgress = ref(0)
 const year = new Date().getFullYear()
-const skills = ['HTML5', 'CSS3', 'JavaScript', 'Vue.js 3', 'Responsive Design', 'Git & GitHub']
+
+const skills = [
+  'HTML5',
+  'CSS3',
+  'JavaScript',
+  'TypeScript',
+  'Vue.js 3',
+  'React.js',
+  'Tailwind CSS',
+  'REST APIs / Fetch',
+  'Chrome DevTools',
+  'Responsive Design',
+  'Git & GitHub'
+]
+
 const navigation = [{ id: 'projects', name: 'Projects' }, { id: 'about', name: 'About' }, { id: 'contact', name: 'Contact' }]
 const filteredProjects = computed(() => {
   const search = query.value.trim().toLowerCase()
@@ -123,7 +137,7 @@ onBeforeUnmount(() => {
       <div class="availability"><span aria-hidden="true"></span> Open to junior frontend opportunities</div>
       <h1 id="hero-title">Hi, I'm<br><span class="gradient-text">Kyrian.</span></h1>
       <p class="hero-role">Frontend Development <span>·</span> Vue.js <span>·</span> JavaScript<span class="cursor" aria-hidden="true"></span></p>
-      <p class="hero-description">A junior frontend developer based in Germany.<br>I turn ideas into <strong>responsive, interactive web applications.</strong></p>
+      <p class="hero-description">A junior frontend developer based in Stuttgart.<br>I turn ideas into <strong>responsive, interactive web applications.</strong></p>
       <div class="button-row hero-buttons">
         <a class="button button-primary" href="#projects">View Projects <span aria-hidden="true">→</span></a>
         <a class="button" href="#about">About Me</a>
@@ -134,7 +148,7 @@ onBeforeUnmount(() => {
         <div><dt>4</dt><dd>Live projects</dd></div>
         <div><dt>Vue 3</dt><dd>Main framework</dd></div>
         <div><dt>ILS</dt><dd>Hamburg training</dd></div>
-        <div><dt>Germany</dt><dd>Based in</dd></div>
+        <div><dt>Stuttgart</dt><dd>Based in</dd></div>
       </dl>
     </section>
 
@@ -145,15 +159,25 @@ onBeforeUnmount(() => {
         <p>From organising tasks to browsing a storefront, I build interfaces that make everyday actions feel straightforward.</p>
         <div class="button-row"><a class="button button-primary pill-button" href="#projects">Explore My Work <span aria-hidden="true">→</span></a><a class="button pill-button" href="#contact">Get in Touch</a></div>
       </div>
-      <figure class="portrait-frame">
-        <img src="/images/profile.webp" alt="Kyrian, frontend developer" width="700" height="700" fetchpriority="high">
-        <figcaption><span class="status-dot" aria-hidden="true"></span> Kyrian <span class="portrait-caption">Frontend Developer · Germany</span></figcaption>
-      </figure>
     </section>
 
     <div class="tech-strip section-shell" aria-label="Technologies I work with">
       <span class="tech-strip-label">Built with tools I know</span>
-      <ul><li><span class="tech-symbol">&lt;/&gt;</span> HTML5</li><li><span class="tech-symbol">#</span> CSS3</li><li><span class="tech-symbol boxed">JS</span> JavaScript</li><li><span class="tech-symbol vue-symbol">V</span> Vue.js</li><li><span class="tech-symbol">ϟ</span> Vite</li><li><span class="tech-symbol">⌘</span> Git & GitHub</li></ul>
+      
+<ul>
+  <li><span class="tech-symbol">&lt;/&gt;</span> HTML5</li>
+  <li><span class="tech-symbol">#</span> CSS3</li>
+  <li><span class="tech-symbol boxed">JS</span> JavaScript</li>
+  <li><span class="tech-symbol boxed">TS</span> TypeScript</li>
+  <li><span class="tech-symbol vue-symbol">V</span> Vue.js</li>
+  <li><span class="tech-symbol">⚛</span> React.js</li>
+  <li><span class="tech-symbol">✦</span> Tailwind CSS</li>
+  <li><span class="tech-symbol">↔</span> REST APIs / Fetch</li>
+  <li><span class="tech-symbol">⌕</span> Chrome DevTools</li>
+  <li><span class="tech-symbol">ϟ</span> Vite</li>
+  <li><span class="tech-symbol">⌘</span> Git & GitHub</li>
+</ul>
+
     </div>
 
     <section id="projects" class="section-shell content-section" data-section tabindex="-1" aria-labelledby="projects-title">
@@ -185,10 +209,52 @@ onBeforeUnmount(() => {
       <div class="about-grid">
         <div>
           <h3 class="small-heading">Technical skills</h3><ul class="skill-grid"><li v-for="skill in skills" :key="skill">{{ skill }}</li></ul>
-          <h3 class="small-heading education-heading">Education & training</h3><div class="timeline"><div class="timeline-item"><h4>Geprüfter Webentwickler</h4><p class="education-school">ILS Hamburg, Germany</p><p>Professional training in Web Development<br><time datetime="2025-03">March 2025</time> – <time datetime="2026-04">April 2026</time></p></div></div>
-          <div class="location-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg> Based in Germany</div>
-        </div>
-        <div class="about-copy"><h3 class="small-heading">What I bring</h3><p>I'm Kyrian, a junior frontend developer who enjoys turning a useful idea into something people can interact with.</p><p>After completing my web development training at ILS Hamburg, I've been building with HTML, CSS, JavaScript, and Vue.js. My portfolio explores practical interfaces: task boards, job application tracking, online shopping, and a taxi booking demo.</p><p>I focus on responsive layouts, clear interactions, and maintainable code. I'm looking for a junior frontend role where I can contribute to a team, learn through feedback, and keep improving my craft.</p><div class="button-row"><a class="button button-primary" href="mailto:kyrian.dev.de@gmail.com?subject=CV%20Request">Request CV <span aria-hidden="true">→</span></a><a class="button" href="https://www.linkedin.com/in/obiekee-kyrian-ikechukwu-563022308/" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's LinkedIn profile (opens in a new tab)">LinkedIn <span aria-hidden="true">↗</span></a></div></div>
+          
+<h3 class="small-heading education-heading">Education & Training</h3>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <h4>Geprüfter Webentwickler</h4>
+    <p class="education-school">ILS Hamburg, Germany</p>
+    <p>Professional Training in Web Development</p>
+    <p>
+      <time datetime="2025-03">March 2025</time> –
+      <time datetime="2026-04">April 2026</time>
+    </p>
+  </div>
+
+  <div class="timeline-item">
+    <h4>Frontend Web Development Bootcamp</h4>
+    <p class="education-school">Ironhack Berlin, Germany</p>
+    <p>Frontend Web Development</p>
+    <p>2024</p>
+  </div>
+
+  <div class="timeline-item">
+    <h4>Higher National Diploma (HND)</h4>
+    <p class="education-school">Building Technology, Nigeria</p>
+    <p>Higher National Diploma in Building Technology</p>
+  </div>
+</div>
+
+<div class="location-note">
+  <svg viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.7"
+       aria-hidden="true">
+    <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+    <circle cx="12" cy="10" r="2.5"/>
+  </svg>
+  Based in Stuttgart
+</div>
+</div>
+
+        <div class="about-copy"><h3 class="small-heading">What I bring</h3><p>I'm a junior frontend developer with a strong interest in building modern, responsive, and user-friendly web applications.
+
+After completing my professional web development training at ILS Hamburg, I've gained practical experience through developing real-world-inspired projects, including a task management application, job application tracker, e-commerce website, and taxi booking system.
+
+I bring a solid understanding of frontend development, attention to detail, problem-solving skills, and the ability to turn ideas into functional web applications. I focus on writing clean, maintainable code and creating interfaces that work smoothly across different devices.
+
+I'm eager to contribute my technical skills to a professional development team, collaborate with other developers, and continue growing as a frontend developer.</p><div class="button-row"><a class="button button-primary" href="mailto:kyrian.dev.de@gmail.com?subject=CV%20Request">Request CV <span aria-hidden="true">→</span></a><a class="button" href="https://www.linkedin.com/in/obiekee-kyrian-ikechukwu-563022308/" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's LinkedIn profile (opens in a new tab)">LinkedIn <span aria-hidden="true">↗</span></a></div></div>
       </div>
     </section>
 
