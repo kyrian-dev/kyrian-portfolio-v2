@@ -355,3 +355,16 @@ nav a:hover, nav a[aria-current] { color: var(--accent); background: var(--accen
 .opportunity-tags { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:20px 0 28px; }
 .opportunity-tags span { border:1px solid var(--border); border-radius:24px; padding:8px 13px; background:var(--surface-raised); color:var(--text); font-size:13px; }
 @media (max-width:760px) { .testimonial-grid { grid-template-columns:1fr; } .testimonial-card { padding:24px; } }
+
+
+/* Practical experience section — uses existing theme variables and Outfit font. */
+.experience-list { margin-top:30px; display:grid; gap:16px; }
+.experience-entry { border:1px solid var(--border); border-radius:14px; background:var(--surface); padding:26px 30px; }
+.experience-heading { display:flex; justify-content:space-between; align-items:flex-start; gap:20px; margin-bottom:14px; }
+.experience-type { display:inline-block; color:var(--accent); font-size:12px; font-weight:600; letter-spacing:.04em; margin-bottom:8px; }
+.experience-heading h3 { color:var(--text); font-size:20px; line-height:1.3; margin:0 0 5px; }
+.experience-heading p { color:var(--text); opacity:.8; margin:0; font-size:14px; }
+.experience-date { flex-shrink:0; border:1px solid var(--border); border-radius:24px; padding:6px 12px; font-size:13px; color:var(--text); }
+.experience-entry > p { color:var(--text); line-height:1.7; max-width:850px; margin-bottom:12px; }
+.experience-entry .text-link { display:inline-block; margin-top:3px; }
+@media (max-width:600px) { .experience-entry { padding:21px; } .experience-heading { flex-direction:column; gap:10px; } .experience-heading h3 { font-size:18px; } }
