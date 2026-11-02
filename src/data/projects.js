@@ -47,4 +47,17 @@ export const projects = [
     live: 'https://citytaxi-jade.vercel.app/', source: 'https://github.com/kyrian-dev/citytaxi',
     limitation: 'Portfolio demo. No real taxi is reserved.',
   },
+  {
+    id: 5, title: 'Nexora', category: 'Productivity', tag: 'PROJECTS, TASKS, AND DEADLINES IN ONE PLACE',
+    image: 'https://raw.githubusercontent.com/kyrian-dev/nexora/main/screenshots/dashboard.png',
+    alt: 'Nexora project management dashboard with project statistics, progress tracking, and upcoming deadlines',
+    problem: 'Managing projects, task priorities, and deadlines across separate tools makes progress difficult to follow.',
+    solution: 'A responsive project management dashboard that brings projects, tasks, progress indicators, and a calendar into one workspace.',
+    features: ['Project and task management', 'Automatic progress tracking', 'Deadline calendar and browser storage'],
+    capability: 'Create projects and tasks, set priorities and due dates, update task statuses, and explore the dashboard and calendar.',
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    notes: 'Explore project progress, task filters, deadline tracking, and the interactive calendar.',
+    live: 'https://nexora-kyrian4.vercel.app/', source: 'https://github.com/kyrian-dev/nexora',
+    limitation: 'Frontend demo. Data is saved in this browser only; there is no account or cloud sync.',
+  },
 ]
