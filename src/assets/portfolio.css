@@ -342,3 +342,16 @@ nav a:hover, nav a[aria-current] { color: var(--accent); background: var(--accen
   .featured-grid .project-preview { height: 230px; }
   .case-study-card > img { height: 200px; }
 }
+
+
+/* Approved mentor testimonials and recruitment invitation. Uses existing Outfit font. */
+.testimonial-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin-top:30px; }
+.testimonial-card { margin:0; padding:30px; border:1px solid var(--border); border-radius:15px; background:var(--surface); display:flex; flex-direction:column; }
+.testimonial-quote-mark { font-family:var(--sans); color:var(--accent); font-size:65px; line-height:.8; margin-bottom:14px; }
+.testimonial-card blockquote { margin:0 0 28px; padding:0; border:0; color:var(--text); font-size:17px; line-height:1.7; flex:1; }
+.testimonial-card figcaption { display:flex; flex-direction:column; gap:3px; border-top:1px solid var(--border); padding-top:17px; }
+.testimonial-card figcaption strong { color:var(--text); font-size:16px; }
+.testimonial-card figcaption span { color:var(--text); opacity:.8; font-size:13px; }
+.opportunity-tags { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:20px 0 28px; }
+.opportunity-tags span { border:1px solid var(--border); border-radius:24px; padding:8px 13px; background:var(--surface-raised); color:var(--text); font-size:13px; }
+@media (max-width:760px) { .testimonial-grid { grid-template-columns:1fr; } .testimonial-card { padding:24px; } }
