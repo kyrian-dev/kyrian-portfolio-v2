@@ -15,6 +15,9 @@ const view = ref('grid')
 const scrollProgress = ref(0)
 const year = new Date().getFullYear()
 
+const featuredProjects = computed(() => ['Nexora', 'Taskflow Studio', 'Job Application Tracker'].map(title => projects.find(project => project.title === title)).filter(Boolean))
+const caseStudyProjects = computed(() => ['Nexora', 'Taskflow Studio'].map(title => projects.find(project => project.title === title)).filter(Boolean))
+
 const skills = [
   'HTML5',
   'CSS3',
@@ -136,8 +139,8 @@ onBeforeUnmount(() => {
     <section id="home" class="hero section-shell" data-section aria-labelledby="hero-title">
       <div class="availability"><span aria-hidden="true"></span> Open to junior frontend opportunities</div>
       <h1 id="hero-title">Hi, I'm<br><span class="gradient-text">Kyrian.</span></h1>
-      <p class="hero-role">Frontend Development <span>·</span> Vue.js <span>·</span> JavaScript<span class="cursor" aria-hidden="true"></span></p>
-      <p class="hero-description">A junior frontend developer based in Stuttgart.<br>I turn ideas into <strong>responsive, interactive web applications.</strong></p>
+      <p class="hero-role">Frontend Development <span>·</span> React <span>·</span> Vue <span>·</span> TypeScript<span class="cursor" aria-hidden="true"></span></p>
+      <p class="hero-description">A junior frontend developer based in Stuttgart.<br>I build <strong>responsive, accessible, interactive web applications</strong> with React, Vue and TypeScript.</p>
       <div class="button-row hero-buttons">
         <a class="button button-primary" href="#projects">View Projects <span aria-hidden="true">→</span></a>
         <a class="button" href="#about">About Me</a>
@@ -145,11 +148,22 @@ onBeforeUnmount(() => {
         <a class="button" href="https://github.com/kyrian-dev" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's GitHub profile (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a>
       </div>
       <dl class="hero-stats">
-        <div><dt>4</dt><dd>Live projects</dd></div>
+        <div><dt>{{ projects.length }}</dt><dd>Live projects</dd></div>
         <div><dt>Vue 3</dt><dd>Main framework</dd></div>
         <div><dt>ILS</dt><dd>Hamburg training</dd></div>
         <div><dt>Stuttgart</dt><dd>Based in</dd></div>
       </dl>
+    </section>
+
+    <section class="flagship section-shell" aria-labelledby="flagship-title">
+      <div class="flagship-copy">
+        <p class="eyebrow">// Featured build</p>
+        <h2 id="flagship-title">Nexora <span class="gradient-text">Project Dashboard</span></h2>
+        <p>A React and TypeScript workspace for organising projects, managing tasks, tracking progress and keeping deadlines in view. Data is saved locally in your browser.</p>
+        <div class="flagship-stack"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vite</span></div>
+        <div class="button-row"><a class="button button-primary" href="https://nexora-kyrian4.vercel.app/" target="_blank" rel="noopener noreferrer">Explore Nexora <span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/kyrian-dev/nexora" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <a class="flagship-visual" href="https://nexora-kyrian4.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Nexora live dashboard in a new tab"><img src="https://raw.githubusercontent.com/kyrian-dev/nexora/main/screenshots/dashboard.png" alt="Actual Nexora dashboard screenshot showing project management interface" loading="lazy" /></a>
     </section>
 
     <section class="intro section-shell" aria-labelledby="intro-title">
@@ -182,8 +196,10 @@ onBeforeUnmount(() => {
 
     <section id="projects" class="section-shell content-section" data-section tabindex="-1" aria-labelledby="projects-title">
       <p class="eyebrow">// Featured projects</p>
-      <h2 id="projects-title">My Frontend Portfolio</h2>
-      <p class="section-description">Four applications, four everyday problems. Explore the interfaces, try the live demos, and look through the code.</p>
+      <h2 id="projects-title">Featured Projects</h2>
+      <p class="section-description">Three featured applications demonstrating project management, task organisation, and job-search workflows. Explore the demos and source code.</p>
+      <div class="project-grid featured-grid"><ProjectCard v-for="project in featuredProjects" :key="project.id" :project="project" /></div>
+      <div class="all-projects-heading"><h3>Explore all {{ projects.length }} projects</h3><p>Filter the complete portfolio by category, technology, or feature.</p></div>
       <div class="project-toolbar">
         <div class="search-row">
           <label class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">Search projects</span><input v-model="query" type="search" placeholder="Search by project, feature, or technology..."></label>
@@ -199,16 +215,31 @@ onBeforeUnmount(() => {
       <div v-else class="empty-state"><h3>No projects found</h3><p>Try another search or choose a different category.</p><button class="button button-primary" @click="resetFilters">Show all projects</button></div>
     </section>
 
-    <section class="section-shell notes-section" aria-labelledby="notes-title">
-      <p class="eyebrow">// Inside the builds</p><h2 id="notes-title">Project Notes</h2><p class="section-description">A closer look at the features, setup, and scope of the work.</p>
-      <div class="notes-grid"><a v-for="project in projects.slice(0, 3)" :key="project.id" class="note-card" :href="project.source + '#readme'" target="_blank" rel="noopener noreferrer" :aria-label="'Read ' + project.title + ' project notes on GitHub (opens in a new tab)'"><span class="note-number">0{{ project.id }}</span><h3>{{ project.title }}</h3><p>{{ project.notes }}</p><span class="text-link">Read project notes <span aria-hidden="true">↗</span></span></a></div>
+    <section id="case-studies" class="section-shell notes-section" aria-labelledby="notes-title">
+      <p class="eyebrow">// Behind the interface</p>
+      <h2 id="notes-title">Development Case Studies</h2>
+      <p class="section-description">A closer look at the problem, approach, implementation and scope of two featured applications.</p>
+      <div class="case-study-grid">
+        <article v-for="project in caseStudyProjects" :key="project.id" class="case-study-card">
+          <img :src="project.image" :alt="project.alt" loading="lazy" />
+          <div class="case-study-content">
+            <span class="eyebrow">Case study · {{ project.category }}</span>
+            <h3>{{ project.title }}</h3>
+            <h4>Challenge</h4><p>{{ project.problem }}</p>
+            <h4>Approach</h4><p>{{ project.solution }}</p>
+            <h4>Implemented features</h4><ul><li v-for="feature in project.features" :key="feature">{{ feature }}</li></ul>
+            <p v-if="project.limitation" class="case-study-limitation">{{ project.limitation }}</p>
+            <div class="button-row"><a class="button button-primary" :href="project.live" target="_blank" rel="noopener noreferrer">Live demo ↗</a><a class="button" :href="project.source + '#readme'" target="_blank" rel="noopener noreferrer">Code &amp; documentation ↗</a></div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="about" class="section-shell content-section" data-section tabindex="-1" aria-labelledby="about-title">
       <p class="eyebrow">// Who I am</p><h2 id="about-title">About Me</h2>
       <div class="about-grid">
         <div>
-          <h3 class="small-heading">Technical skills</h3><ul class="skill-grid"><li v-for="skill in skills" :key="skill">{{ skill }}</li></ul>
+          <h3 class="small-heading">Frontend</h3><ul class="skill-grid"><li v-for="skill in skills.slice(0, 7)" :key="skill">{{ skill }}</li></ul><h3 class="small-heading education-heading">Tools &amp; practices</h3><ul class="skill-grid"><li v-for="skill in skills.slice(7)" :key="skill">{{ skill }}</li></ul>
           
 <h3 class="small-heading education-heading">Education & Training</h3>
 
@@ -250,18 +281,18 @@ onBeforeUnmount(() => {
 
         <div class="about-copy"><h3 class="small-heading">What I bring</h3><p>I'm a junior frontend developer with a strong interest in building modern, responsive, and user-friendly web applications.
 
-After completing my professional web development training at ILS Hamburg, I've gained practical experience through developing real-world-inspired projects, including a task management application, job application tracker, e-commerce website, and taxi booking system.
+After completing my professional web development training at ILS Hamburg, I've gained practical experience through developing real-world-inspired projects, including Nexora, a React and TypeScript project dashboard, alongside a task management application, job application tracker, e-commerce website, and taxi booking demo.
 
 I bring a solid understanding of frontend development, attention to detail, problem-solving skills, and the ability to turn ideas into functional web applications. I focus on writing clean, maintainable code and creating interfaces that work smoothly across different devices.
 
-I'm eager to contribute my technical skills to a professional development team, collaborate with other developers, and continue growing as a frontend developer.</p><div class="button-row"><a class="button button-primary" href="mailto:kyrian.dev.de@gmail.com?subject=CV%20Request">Request CV <span aria-hidden="true">→</span></a><a class="button" href="https://www.linkedin.com/in/obiekee-kyrian-ikechukwu-563022308/" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's LinkedIn profile (opens in a new tab)">LinkedIn <span aria-hidden="true">↗</span></a></div></div>
+I'm eager to contribute my technical skills to a professional development team, collaborate with other developers, and continue growing as a frontend developer.</p><div class="button-row"><a class="button button-primary" href="#projects">View My Projects <span aria-hidden="true">→</span></a><a class="button" href="https://www.linkedin.com/in/obiekee-kyrian-ikechukwu-563022308/" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's LinkedIn profile (opens in a new tab)">LinkedIn <span aria-hidden="true">↗</span></a></div></div>
       </div>
     </section>
 
     <section id="contact" class="contact-section" tabindex="-1" data-section aria-labelledby="contact-title"><div class="section-shell contact-inner">
       <div class="availability"><span aria-hidden="true"></span> Open to opportunities</div><h2 id="contact-title">Let's build something<br><span class="gradient-text">worth using.</span></h2><p>Looking for a junior frontend developer?<br>I'd love to hear about your team and what you're building.</p>
       <a class="contact-email" href="mailto:kyrian.dev.de@gmail.com"><span><small>Email</small><strong>kyrian.dev.de@gmail.com</strong></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
-      <div class="button-row contact-buttons"><a class="button" href="https://www.linkedin.com/in/obiekee-kyrian-ikechukwu-563022308/" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's LinkedIn profile (opens in a new tab)">LinkedIn <span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/kyrian-dev" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's GitHub profile (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a><a class="button button-primary" href="mailto:kyrian.dev.de@gmail.com?subject=CV%20Request">Request CV <span aria-hidden="true">→</span></a></div>
+      <div class="button-row contact-buttons"><a class="button" href="https://www.linkedin.com/in/obiekee-kyrian-ikechukwu-563022308/" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's LinkedIn profile (opens in a new tab)">LinkedIn <span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/kyrian-dev" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's GitHub profile (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a><a class="button button-primary" href="mailto:kyrian.dev.de@gmail.com?subject=Frontend%20Opportunity">Get in Touch <span aria-hidden="true">→</span></a></div>
     </div></section>
   </main>
   <footer class="site-footer"><div class="section-shell footer-inner"><p>© {{ year }} Kyrian. <span>Built with Vue.js · Germany</span></p><div><a href="https://github.com/kyrian-dev" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:kyrian.dev.de@gmail.com">Email</a><a href="#home">Back to top ↑</a></div></div></footer>
