@@ -32,7 +32,7 @@ const skills = [
   'Git & GitHub'
 ]
 
-const navigation = [{ id: 'projects', name: 'Projects' }, { id: 'case-studies', name: 'Case Studies' }, { id: 'about', name: 'About' }, { id: 'contact', name: 'Contact' }]
+const navigation = [{ id: 'projects', name: 'Projects' }, { id: 'case-studies', name: 'Case Studies' }, { id: 'about', name: 'About' }, { id: 'testimonials', name: 'References' }, { id: 'contact', name: 'Contact' }]
 const filteredProjects = computed(() => {
   const search = query.value.trim().toLowerCase()
   return projects.filter(project => (category.value === 'All' || project.category === category.value)
@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
 
   <main id="main" tabindex="-1">
     <section id="home" class="hero section-shell" data-section aria-labelledby="hero-title">
-      <div class="availability"><span aria-hidden="true"></span> Open to junior frontend opportunities</div>
+      <div class="availability"><span aria-hidden="true"></span> Open to junior frontend roles &amp; internships</div>
       <h1 id="hero-title">Hi, I'm<br><span class="gradient-text">Kyrian.</span></h1>
       <p class="hero-role">Frontend Development <span>·</span> React <span>·</span> Vue <span>·</span> TypeScript<span class="cursor" aria-hidden="true"></span></p>
       <p class="hero-description">A junior frontend developer based in Stuttgart.<br>I build <strong>responsive, accessible, interactive web applications</strong> with React, Vue and TypeScript.</p>
@@ -289,8 +289,26 @@ I'm eager to contribute my technical skills to a professional development team, 
       </div>
     </section>
 
+    <section id="testimonials" class="section-shell content-section testimonials-section" data-section tabindex="-1" aria-labelledby="testimonials-title">
+      <p class="eyebrow">// Mentor feedback</p>
+      <h2 id="testimonials-title">Testimonials &amp; References</h2>
+      <p class="section-description">Feedback from my frontend development training.</p>
+      <div class="testimonial-grid">
+        <figure class="testimonial-card">
+          <span class="testimonial-quote-mark" aria-hidden="true">“</span>
+          <blockquote>Kyrian is a dedicated and motivated frontend developer with strong practical skills, attention to detail, and a willingness to learn. His projects demonstrate creativity and great potential for professional growth.</blockquote>
+          <figcaption><strong>Sarah Henneberg</strong><span>ILS Hamburg</span></figcaption>
+        </figure>
+        <figure class="testimonial-card">
+          <span class="testimonial-quote-mark" aria-hidden="true">“</span>
+          <blockquote>Kyrian approaches technical challenges with enthusiasm and determination. His problem-solving mindset, openness to feedback, and commitment to continuous improvement make him a promising Junior Frontend Developer.</blockquote>
+          <figcaption><strong>Mariano Neito</strong><span>Ironhack Berlin</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section id="contact" class="contact-section" tabindex="-1" data-section aria-labelledby="contact-title"><div class="section-shell contact-inner">
-      <div class="availability"><span aria-hidden="true"></span> Open to opportunities</div><h2 id="contact-title">Let's build something<br><span class="gradient-text">worth using.</span></h2><p>Looking for a junior frontend developer?<br>I'd love to hear about your team and what you're building.</p>
+      <div class="availability"><span aria-hidden="true"></span> Open to junior roles &amp; internships</div><h2 id="contact-title">Looking for a <span class="gradient-text">Junior Frontend Developer?</span></h2><p>I'm actively seeking junior frontend developer positions and frontend development internships in Germany. I work with React, Vue.js, JavaScript and TypeScript, and I'm ready to contribute to real-world products, collaborate with experienced developers and continue growing.</p><div class="opportunity-tags"><span>Junior Frontend Developer</span><span>Frontend Internship</span><span>Based in Stuttgart</span></div>
       <a class="contact-email" href="mailto:kyrian.dev.de@gmail.com"><span><small>Email</small><strong>kyrian.dev.de@gmail.com</strong></span><span class="contact-arrow" aria-hidden="true">↗</span></a>
       <div class="button-row contact-buttons"><a class="button" href="https://www.linkedin.com/in/obiekee-kyrian-ikechukwu-563022308/" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's LinkedIn profile (opens in a new tab)">LinkedIn <span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/kyrian-dev" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's GitHub profile (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a><a class="button button-primary" href="mailto:kyrian.dev.de@gmail.com?subject=Frontend%20Opportunity">Get in Touch <span aria-hidden="true">→</span></a></div>
     </div></section>
