@@ -32,7 +32,7 @@ const skills = [
   'Git & GitHub'
 ]
 
-const navigation = [{ id: 'projects', name: 'Projects' }, { id: 'about', name: 'About' }, { id: 'contact', name: 'Contact' }]
+const navigation = [{ id: 'projects', name: 'Projects' }, { id: 'case-studies', name: 'Case Studies' }, { id: 'about', name: 'About' }, { id: 'contact', name: 'Contact' }]
 const filteredProjects = computed(() => {
   const search = query.value.trim().toLowerCase()
   return projects.filter(project => (category.value === 'All' || project.category === category.value)
@@ -215,7 +215,7 @@ onBeforeUnmount(() => {
       <div v-else class="empty-state"><h3>No projects found</h3><p>Try another search or choose a different category.</p><button class="button button-primary" @click="resetFilters">Show all projects</button></div>
     </section>
 
-    <section id="case-studies" class="section-shell notes-section" aria-labelledby="notes-title">
+    <section id="case-studies" class="section-shell notes-section" data-section tabindex="-1" aria-labelledby="notes-title">
       <p class="eyebrow">// Behind the interface</p>
       <h2 id="notes-title">Development Case Studies</h2>
       <p class="section-description">A closer look at the problem, approach, implementation and scope of two featured applications.</p>
