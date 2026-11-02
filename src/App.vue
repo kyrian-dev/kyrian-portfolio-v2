@@ -32,7 +32,7 @@ const skills = [
   'Git & GitHub'
 ]
 
-const navigation = [{ id: 'projects', name: 'Projects' }, { id: 'case-studies', name: 'Case Studies' }, { id: 'about', name: 'About' }, { id: 'testimonials', name: 'References' }, { id: 'contact', name: 'Contact' }]
+const navigation = [{ id: 'projects', name: 'Projects' }, { id: 'case-studies', name: 'Case Studies' }, { id: 'about', name: 'About' }, { id: 'experience', name: 'Experience' }, { id: 'testimonials', name: 'References' }, { id: 'contact', name: 'Contact' }]
 const filteredProjects = computed(() => {
   const search = query.value.trim().toLowerCase()
   return projects.filter(project => (category.value === 'All' || project.category === category.value)
@@ -286,6 +286,27 @@ After completing my professional web development training at ILS Hamburg, I've g
 I bring a solid understanding of frontend development, attention to detail, problem-solving skills, and the ability to turn ideas into functional web applications. I focus on writing clean, maintainable code and creating interfaces that work smoothly across different devices.
 
 I'm eager to contribute my technical skills to a professional development team, collaborate with other developers, and continue growing as a frontend developer.</p><div class="button-row"><a class="button button-primary" href="#projects">View My Projects <span aria-hidden="true">→</span></a><a class="button" href="https://www.linkedin.com/in/obiekee-kyrian-ikechukwu-563022308/" target="_blank" rel="noopener noreferrer" aria-label="Kyrian's LinkedIn profile (opens in a new tab)">LinkedIn <span aria-hidden="true">↗</span></a></div></div>
+      </div>
+    </section>
+
+    <section id="experience" class="section-shell content-section experience-section" data-section tabindex="-1" aria-labelledby="experience-title">
+      <p class="eyebrow">// Hands-on experience</p>
+      <h2 id="experience-title">Experience &amp; Practical Work</h2>
+      <p class="section-description">Independent frontend builds, hands-on e-commerce work, and structured web development training.</p>
+      <div class="experience-list">
+        <article class="experience-entry">
+          <div class="experience-heading"><div><span class="experience-type">Independent projects</span><h3>Frontend Developer — Personal Projects</h3><p>Self-directed development</p></div><span class="experience-date">2026</span></div>
+          <p>Designed and built responsive web applications using Vue.js, React, JavaScript and TypeScript, including a project management dashboard, task management interface and job application tracker.</p>
+          <a class="text-link" href="#projects">Explore my projects <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="experience-entry">
+          <div class="experience-heading"><div><span class="experience-type">Independent e-commerce project</span><h3>Shopify Store Development &amp; Management</h3><p>Self-managed storefront</p></div><span class="experience-date">2026</span></div>
+          <p>Built and customized a Shopify storefront, configured products and collections, adapted store content for German customers, and worked on responsive presentation and store settings.</p>
+        </article>
+        <article class="experience-entry">
+          <div class="experience-heading"><div><span class="experience-type">Professional training</span><h3>Frontend Development Training</h3><p>ILS Hamburg · Ironhack Berlin</p></div><span class="experience-date">2024–2026</span></div>
+          <p>Completed frontend and web development training, strengthening practical skills in modern web technologies, interface design, and building interactive applications.</p>
+        </article>
       </div>
     </section>
 
